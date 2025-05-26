@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=MedievalSharp&display=swap');
+
+:root {
+  /* House Colors */
+  --gryffindor-red: #740001;
+  --gryffindor-gold: #eeba30;
+  --slytherin-green: #1a472a;
+  --slytherin-silver: #aaaaaa;
+  --hufflepuff-yellow: #ffdb00;
+  --hufflepuff-black: #000000;
+  --ravenclaw-blue: #0e1a40;
+  --ravenclaw-bronze: #946b2d;
+  
+  /* Theme Colors */
+  --dark-bg: #0a0a0a;
+  --parchment: #f5e7c1;
+  --ink: #3a3129;
+}
+
+body {
+  font-family: 'Henny Penny', cursive;
+  background-color: var(--dark-bg);
+  color: var(--parchment);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, 
+    var(--gryffindor-red) 0%, 
+    var(--slytherin-green) 25%, 
+    var(--ravenclaw-blue) 50%, 
+    var(--hufflepuff-yellow) 75%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+/* House Filter Dropdown */
+select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: 'MedievalSharp', cursive;
+  background-color: var(--ink);
+  color: var(--parchment);
+  border: 2px solid var(--gryffindor-gold);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23eeba30'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5rem;
+}
+
+/* Main Content Grid */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Base Card Styles */
+.card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+/* House-Specific Card Styles */
+.card.gryffindor {
+  border-top: 6px solid var(--gryffindor-red);
+  border-bottom: 6px solid var(--gryffindor-gold);
+}
+
+.card.gryffindor h3 {
+  color: var(--gryffindor-gold);
+  text-shadow: 1px 1px 2px var(--gryffindor-red);
+}
+
+.card.gryffindor:hover {
+  box-shadow: 0 12px 24px rgba(238, 186, 48, 0.4);
+}
+
+.card.slytherin {
+  border-top: 6px solid var(--slytherin-green);
+  border-bottom: 6px solid var(--slytherin-silver);
+}
+
+.card.slytherin h3 {
+  color: var(--slytherin-silver);
+  text-shadow: 1px 1px 2px var(--slytherin-green);
+}
+
+.card.slytherin:hover {
+  box-shadow: 0 12px 24px rgba(170, 170, 170, 0.4);
+}
+
+.card.hufflepuff {
+  border-top: 6px solid var(--hufflepuff-black);
+  border-bottom: 6px solid var(--hufflepuff-yellow);
+}
+
+.card.hufflepuff h3 {
+  color: var(--hufflepuff-yellow);
+  text-shadow: 1px 1px 2px var(--hufflepuff-black);
+}
+
+.card.hufflepuff:hover {
+  box-shadow: 0 12px 24px rgba(255, 219, 0, 0.4);
+}
+
+.card.ravenclaw {
+  border-top: 6px solid var(--ravenclaw-blue);
+  border-bottom: 6px solid var(--ravenclaw-bronze);
+}
+
+.card.ravenclaw h3 {
+  color: var(--ravenclaw-bronze);
+  text-shadow: 1px 1px 2px var(--ravenclaw-blue);
+}
+
+.card.ravenclaw:hover {
+  box-shadow: 0 12px 24px rgba(148, 107, 45, 0.4);
+}
+
+/* Shared Hover Effects */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(90deg, 
+    var(--gryffindor-red) 0%, 
+    var(--slytherin-green) 25%, 
+    var(--ravenclaw-blue) 50%, 
+    var(--hufflepuff-yellow) 75%);
+  margin-top: auto;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  main {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+}
